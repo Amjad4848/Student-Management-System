@@ -1,0 +1,501 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">S</div>
+
+            <div>
+                <h2>EduManage</h2>
+                <span>Management System</span>
+            </div>
+        </div>
+
+        <nav class="navigation">
+
+            <p class="nav-title">MAIN MENU</p>
+
+            <a href="#" class="nav-link active">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>📚</span>
+                Courses
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>📊</span>
+                Reports
+            </a>
+
+            <p class="nav-title">MANAGEMENT</p>
+
+            <a href="#" class="nav-link">
+                <span>👨‍🏫</span>
+                Teachers
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>📅</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-avatar">MA</div>
+
+            <div>
+                <strong>Admin</strong>
+                <small>Administrator</small>
+            </div>
+
+            <button class="logout-btn">↪</button>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back! Here's what's happening with your students.</p>
+            </div>
+
+            <div class="header-actions">
+
+                <button class="notification-btn">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile">
+                    <div class="profile-avatar">MA</div>
+
+                    <div class="profile-info">
+                        <strong>Admin</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                    <span>⌄</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-content">
+                    <span>Total Students</span>
+                    <h2 id="totalStudents">1,248</h2>
+                    <p class="positive">↑ 12.5% <span>vs last month</span></p>
+                </div>
+
+                <div class="stat-icon students-icon">
+                    👨‍🎓
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-content">
+                    <span>Active Students</span>
+                    <h2 id="activeStudents">1,142</h2>
+                    <p class="positive">↑ 8.2% <span>vs last month</span></p>
+                </div>
+
+                <div class="stat-icon active-icon">
+                    ✓
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-content">
+                    <span>Total Courses</span>
+                    <h2 id="totalCourses">36</h2>
+                    <p class="neutral">4 new <span>this semester</span></p>
+                </div>
+
+                <div class="stat-icon courses-icon">
+                    📚
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-content">
+                    <span>Average Attendance</span>
+                    <h2 id="attendance">92.4%</h2>
+                    <p class="positive">↑ 2.4% <span>vs last month</span></p>
+                </div>
+
+                <div class="stat-icon attendance-icon">
+                    📈
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Content Grid -->
+        <section class="content-grid">
+
+            <!-- Recent Students -->
+            <div class="panel students-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Students</h2>
+                        <p>Recently registered students</p>
+                    </div>
+
+                    <button class="view-all-btn">
+                        View All →
+                    </button>
+
+                </div>
+
+
+                <!-- Search -->
+                <div class="table-toolbar">
+
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search students..."
+                        >
+                    </div>
+
+                    <button class="filter-btn">
+                        ⚙ Filter
+                    </button>
+
+                    <button class="add-student-btn">
+                        + Add Student
+                    </button>
+
+                </div>
+
+
+                <!-- Students Table -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>STUDENT</th>
+                                <th>ID</th>
+                                <th>COURSE</th>
+                                <th>STATUS</th>
+                                <th>JOINED</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTableBody">
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar avatar-blue">
+                                            AH
+                                        </div>
+
+                                        <div>
+                                            <strong>Ahmed Hassan</strong>
+                                            <span>ahmed@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU-1001</td>
+
+                                <td>Computer Science</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Oct 02, 2026</td>
+
+                                <td>
+                                    <button class="action-btn">⋮</button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar avatar-purple">
+                                            SA
+                                        </div>
+
+                                        <div>
+                                            <strong>Sara Ali</strong>
+                                            <span>sara@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU-1002</td>
+
+                                <td>Software Engineering</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 28, 2026</td>
+
+                                <td>
+                                    <button class="action-btn">⋮</button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar avatar-green">
+                                            UA
+                                        </div>
+
+                                        <div>
+                                            <strong>Usman Ahmed</strong>
+                                            <span>usman@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU-1003</td>
+
+                                <td>Information Technology</td>
+
+                                <td>
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>Sep 25, 2026</td>
+
+                                <td>
+                                    <button class="action-btn">⋮</button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="student-info">
+
+                                        <div class="student-avatar avatar-orange">
+                                            MN
+                                        </div>
+
+                                        <div>
+                                            <strong>Maria Noor</strong>
+                                            <span>maria@example.com</span>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>STU-1004</td>
+
+                                <td>Web Development</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>Sep 20, 2026</td>
+
+                                <td>
+                                    <button class="action-btn">⋮</button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right Panel -->
+            <div class="side-panels">
+
+                <!-- Quick Actions -->
+                <div class="panel quick-actions">
+
+                    <div class="panel-header">
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Manage your system</p>
+                        </div>
+                    </div>
+
+                    <button class="quick-action">
+                        <span class="quick-icon blue">+</span>
+                        <div>
+                            <strong>Add Student</strong>
+                            <small>Register a new student</small>
+                        </div>
+                        <span>→</span>
+                    </button>
+
+                    <button class="quick-action">
+                        <span class="quick-icon purple">+</span>
+                        <div>
+                            <strong>Add Course</strong>
+                            <small>Create a new course</small>
+                        </div>
+                        <span>→</span>
+                    </button>
+
+                    <button class="quick-action">
+                        <span class="quick-icon green">✓</span>
+                        <div>
+                            <strong>Attendance</strong>
+                            <small>Mark today's attendance</small>
+                        </div>
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+
+                <!-- Performance -->
+                <div class="panel performance-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Performance</h2>
+                            <p>Student performance overview</p>
+                        </div>
+
+                        <select>
+                            <option>This Year</option>
+                            <option>This Month</option>
+                        </select>
+
+                    </div>
+
+                    <div class="performance-chart">
+
+                        <div class="chart-value">86.8%</div>
+
+                        <div class="progress-circle">
+                            <div>
+                                <strong>86.8%</strong>
+                                <span>Average Score</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="performance-footer">
+                        <span>↑ 5.6% improvement</span>
+                        <small>Compared to last year</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <span>© 2026 EduManage. All rights reserved.</span>
+
+            <div>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+            </div>
+        </footer>
+
+    </main>
+
+
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
+```
